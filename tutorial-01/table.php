@@ -5,7 +5,12 @@
 
 // Lets read in file contents
 $my_file = fopen('file-appended.csv', 'r');
-$values = fgetcsv($my_file);
+
+$values = [];
+// Sorry I messed up we have to do this
+while (($data = fgetcsv($my_file)) !== FALSE) {
+	array_push($values, $data);
+}
 fclose($my_file);
 
 // Print Values
@@ -66,15 +71,25 @@ fclose($my_file);
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Data</td>
-						<td>Data</td>
-						<td>Data</td>
-						<td>Data</td>
-						<td>Data</td>
-						<td>Data</td>
-					</tr>
+					<?php
+						// We can mix PHP and HTML!
+						// So we need to add a th for each value for the CSV above...
+						// var_dump($values); if you need to see them
+
+						// Lets keep track of the row number
+						$index = 1;
+					?>
+					<?php foreach ($values as $row): ?>
+						<tr>
+							<th scope="row"><?php echo $index ?></th>
+							<td><?php echo $row[0] ?></td>
+							<td><?php echo $row[1] ?></td>
+							<td><?php echo $row[2] ?></td>
+							<td><?php echo $row[3] ?></td>
+							<td><?php echo $row[4] ?></td>
+							<td><?php echo $row[5] ?></td>
+						</tr>
+					<?php endforeach ?>
 				</tbody>
 			</table>
 			
