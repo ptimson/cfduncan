@@ -1,39 +1,44 @@
 <?php 
 // HTML Template from: view-source:http://getbootstrap.com/examples/starter-template/ 
 
-// Radio Buttons
-$my_radio = 'NO VALUE';
-if (isset($_POST['my_radio1'])) {
-	$my_radio = $_POST['my_radio1'];
-} elseif (isset($_POST['my_radio2'])) {
-	$my_radio = $_POST['my_radio2'];
-} elseif (isset($_POST['my_radio3'])) {
-	$my_radio = $_POST['my_radio3'];
-}
+// Bug fix - Only peform save if submit is sent to POST
+// We will store submit as name of submit button at bottom of form
+if(isset($_POST['my_submit'])) {
 
-// Multi Drown down
-$dropdown_multi_values = "";
-if (isset( $_POST['my_dropdown_multi'])) {
-	foreach ($$_POST['my_dropdown_multi'] as $value) {
-		$dropdown_multi_values .= $value;
-		$dropdown_multi_values .= ', ';
+	// Radio Buttons
+	$my_radio = 'NO VALUE';
+	if (isset($_POST['my_radio1'])) {
+		$my_radio = $_POST['my_radio1'];
+	} elseif (isset($_POST['my_radio2'])) {
+		$my_radio = $_POST['my_radio2'];
+	} elseif (isset($_POST['my_radio3'])) {
+		$my_radio = $_POST['my_radio3'];
 	}
+
+	// Multi Drown down
+	$dropdown_multi_values = "";
+	if (isset( $_POST['my_dropdown_multi'])) {
+		foreach ($$_POST['my_dropdown_multi'] as $value) {
+			$dropdown_multi_values .= $value;
+			$dropdown_multi_values .= ', ';
+		}
+	}
+
+	$values = array(
+		'my_email' => $_POST['my_email'],
+		'my_password' => $_POST['my_password'],
+		'my_checkbox' => isset($_POST['my_checkbox']) ? 'true' : 'false',
+		'my_radio' => $my_radio,
+		'my_dropdown_single' => $_POST['my_dropdown_single'],
+		'my_dropdown_multi' => $dropdown_list
+	);
+
+	// Save CSV
+	$my_file = fopen('data.csv', 'a');
+	fputcsv($my_file, $values);
+	fclose($my_file);
+
 }
-
-$values = array(
-	'my_email' => $_POST['my_email'],
-	'my_password' => $_POST['my_password'],
-	'my_checkbox' => isset($_POST['my_checkbox']) ? 'true' : 'false',
-	'my_radio' => $my_radio,
-	'my_dropdown_single' => $_POST['my_dropdown_single'],
-	'my_dropdown_multi' => $dropdown_list
-);
-
-// Save CSV
-$my_file = fopen('data.csv', 'a');
-fputcsv($my_file, $values);
-fclose($my_file);
-
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -144,7 +149,8 @@ fclose($my_file);
 					<option value="five">5</option>
 				</select>
 
-				<button type="submit" class="btn btn-default">Submit</button>
+				<!-- Name is my_submit -->
+				<button name="my_submit" type="submit" class="btn btn-default">Submit</button>
 			</form>
 
 
