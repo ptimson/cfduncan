@@ -1,7 +1,60 @@
 <?php 
 // HTML Template from: view-source:http://getbootstrap.com/examples/starter-template/ 
+
+// Simple Print Line
 echo 'Contents of Submit:<br/>';
+
+// Dump contents of my variable
 var_dump($_POST);
+echo '<br/>';
+
+// Now we are going to handle / read the contents of the form from the POST
+echo 'Email Address: ' . $_POST['my_email'] . '<br/>'; // . is used to join/concatinate strings
+
+echo 'Password: ' . $_POST['my_password'] . '<br/>';
+
+// Checkbox - If ticked value will be 1 else it wont exist inside the $_POST
+// isset() can be used to check if a variable exists
+if (isset($_POST['my_checkbox'])) {
+	echo 'Checkbox: Ticked<br/>';
+} else {
+	echo 'Checkbox: NOT Ticked<br/>';
+}
+// Also we can do this
+if ($_POST['my_checkbox'] == '1') {
+	echo 'Checkbox: Ticked<br/>';
+} else {
+	echo 'Checkbox: NOT Ticked<br/>';
+}
+
+// Radio Buttons
+// Similar to checkbox
+echo 'Radio Value: ';
+if (isset($_POST['my_radio1'])) {
+	echo $_POST['my_radio1'];
+} elseif (isset($_POST['my_radio2'])) {
+	echo $_POST['my_radio2'];
+} elseif (isset($_POST['my_radio3'])) {
+	echo $_POST['my_radio3'];
+} else {
+	echo 'NO VALUE';
+}
+echo '<br />';
+
+// Dropdown
+echo 'Dropdown: ' . $_POST['my_dropdown_single'] . '<br/>';
+
+// Dropdown Multi
+echo 'Dropdown Multi: ';
+// Can have multiple value = stored in a list (an array)
+$dropdown_list = $_POST['my_dropdown_multi'];
+// Print each item in list
+foreach ($dropdown_list as $value) {
+	echo $value . ", ";
+}
+echo "<br />";
+
+
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -44,6 +97,7 @@ var_dump($_POST);
 			<h1>Chris's Example Form</h1>
 
 			<form method="POST" action="">
+
 				<div class="form-group">
 					<label for="exampleInputEmail1">Email address</label>
 					<input name="my_email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
@@ -75,19 +129,19 @@ var_dump($_POST);
 
 
 				<select name="my_dropdown_single" class="form-control form-group">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
+					<option value="one">1</option>
+					<option value="two">2</option>
+					<option value="three">3</option>
+					<option value="four">4</option>
+					<option value="five">5</option>
 				</select>
 
-				<select name="my_dropdown_multi" multiple class="form-control form-group">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
+				<select name="my_dropdown_multi[]" multiple class="form-control form-group">
+					<option value="one">1</option>
+					<option value="two">2</option>
+					<option value="three">3</option>
+					<option value="four">4</option>
+					<option value="five">5</option>
 				</select>
 
 				<button type="submit" class="btn btn-default">Submit</button>
