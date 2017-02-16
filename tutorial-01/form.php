@@ -30,15 +30,15 @@ if ($_POST['my_checkbox'] == '1') {
 // Radio Buttons
 // Similar to checkbox
 echo 'Radio Value: ';
+$my_radio = 'NO VALUE';
 if (isset($_POST['my_radio1'])) {
-	echo $_POST['my_radio1'];
+	$my_radio = $_POST['my_radio1'];
 } elseif (isset($_POST['my_radio2'])) {
-	echo $_POST['my_radio2'];
+	$my_radio = $_POST['my_radio2'];
 } elseif (isset($_POST['my_radio3'])) {
-	echo $_POST['my_radio3'];
-} else {
-	echo 'NO VALUE';
+	$my_radio = $_POST['my_radio3'];
 }
+echo $my_radio;
 echo '<br />';
 
 // Dropdown
@@ -47,13 +47,51 @@ echo 'Dropdown: ' . $_POST['my_dropdown_single'] . '<br/>';
 // Dropdown Multi
 echo 'Dropdown Multi: ';
 // Can have multiple value = stored in a list (an array)
-$dropdown_list = $_POST['my_dropdown_multi'];
+$dropdown_multi_values = "";
 // Print each item in list
-foreach ($dropdown_list as $value) {
-	echo $value . ", ";
+if (isset( $_POST['my_dropdown_multi'])) {
+	foreach ($$_POST['my_dropdown_multi'] as $value) {
+		$dropdown_multi_values .= $value;
+		$dropdown_multi_values .= ', ';
+	}
 }
+
 echo "<br />";
 
+//////////////// To Save To File ////////////////////////////
+// We are going to save to a CSV File (Comma seperated)
+// First lets create a list of the values
+// I have also edited the radio button code abit
+///////////////////////////////////////////////////////////
+
+$values = array(
+	'my_email' => $_POST['my_email'],
+	'my_password' => $_POST['my_password'],
+	// Short hand for an if statement (if true (exists) then use first value (true) else use second value (false))
+	'my_checkbox' => isset($_POST['my_checkbox']) ? 'true' : 'false',
+	// Note I stored this as a value before
+	'my_radio' => $my_radio,
+	'my_dropdown_single' => $_POST['my_dropdown_single'],
+	'my_dropdown_multi' => $dropdown_list
+);
+
+// Let's checkout our new list!
+echo 'My new list: <br/>';
+var_dump($values);
+
+// Now lets write this to the file! - If this fails we may need to give form.php 755 perms and the folder that it is in to 777
+$my_file = fopen('file.csv', 'w');
+fputcsv($my_file, $values);
+fclose($my_file);
+
+// You will notice the contents is replace each time.. But we want to append!!
+// Uncomment the next one and see what you get!!
+
+// $my_file = fopen('file-appended.csv', 'a');
+// fputcsv($my_file, $values);
+// fclose($my_file);
+
+// Looks good!!
 
 
 ?><!DOCTYPE html>
