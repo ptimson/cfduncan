@@ -1,35 +1,7 @@
 <?php 
 // HTML Template from: view-source:http://getbootstrap.com/examples/starter-template/ 
 
-// Simple Print Line
-echo 'Contents of Submit:<br/>';
-
-// Dump contents of my variable
-var_dump($_POST);
-echo '<br/>';
-
-// Now we are going to handle / read the contents of the form from the POST
-echo 'Email Address: ' . $_POST['my_email'] . '<br/>'; // . is used to join/concatinate strings
-
-echo 'Password: ' . $_POST['my_password'] . '<br/>';
-
-// Checkbox - If ticked value will be 1 else it wont exist inside the $_POST
-// isset() can be used to check if a variable exists
-if (isset($_POST['my_checkbox'])) {
-	echo 'Checkbox: Ticked<br/>';
-} else {
-	echo 'Checkbox: NOT Ticked<br/>';
-}
-// Also we can do this
-if ($_POST['my_checkbox'] == '1') {
-	echo 'Checkbox: Ticked<br/>';
-} else {
-	echo 'Checkbox: NOT Ticked<br/>';
-}
-
 // Radio Buttons
-// Similar to checkbox
-echo 'Radio Value: ';
 $my_radio = 'NO VALUE';
 if (isset($_POST['my_radio1'])) {
 	$my_radio = $_POST['my_radio1'];
@@ -38,31 +10,15 @@ if (isset($_POST['my_radio1'])) {
 } elseif (isset($_POST['my_radio3'])) {
 	$my_radio = $_POST['my_radio3'];
 }
-echo $my_radio;
-echo '<br />';
 
-// Dropdown
-echo 'Dropdown: ' . $_POST['my_dropdown_single'] . '<br/>';
-
-// Dropdown Multi
-echo 'Dropdown Multi: ';
-// Can have multiple value = stored in a list (an array)
+// Multi Drown down
 $dropdown_multi_values = "";
-// Print each item in list
 if (isset( $_POST['my_dropdown_multi'])) {
 	foreach ($$_POST['my_dropdown_multi'] as $value) {
 		$dropdown_multi_values .= $value;
 		$dropdown_multi_values .= ', ';
 	}
 }
-
-echo "<br />";
-
-//////////////// To Save To File ////////////////////////////
-// We are going to save to a CSV File (Comma seperated)
-// First lets create a list of the values
-// I have also edited the radio button code abit
-///////////////////////////////////////////////////////////
 
 $values = array(
 	'my_email' => $_POST['my_email'],
@@ -75,17 +31,7 @@ $values = array(
 	'my_dropdown_multi' => $dropdown_list
 );
 
-// Let's checkout our new list!
-echo 'My new list: <br/>';
-var_dump($values);
-
-// Now lets write this to the file! - If this fails we may need to give form.php 755 perms and the folder that it is in to 777
-$my_file = fopen('file.csv', 'w');
-fputcsv($my_file, $values);
-fclose($my_file);
-
-// You will notice the contents is replace each time.. But we want to append!!
-
+// Save CSV
 $my_file = fopen('file-appended.csv', 'a');
 fputcsv($my_file, $values);
 fclose($my_file);
@@ -126,6 +72,27 @@ fclose($my_file);
 	</head>
 
 	<body>
+
+	    <nav class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#">Chris Tutorial 01</a>
+	        </div>
+	        <div id="navbar" class="collapse navbar-collapse">
+	          <ul class="nav navbar-nav">
+	            <li class="active"><a href="form.php">Form</a></li>
+	            <li><a href="table.php">Table</a></li>	            
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </nav>
+
 
 		<div class="container">
 
