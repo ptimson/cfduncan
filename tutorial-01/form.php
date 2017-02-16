@@ -23,16 +23,14 @@ if (isset( $_POST['my_dropdown_multi'])) {
 $values = array(
 	'my_email' => $_POST['my_email'],
 	'my_password' => $_POST['my_password'],
-	// Short hand for an if statement (if true (exists) then use first value (true) else use second value (false))
 	'my_checkbox' => isset($_POST['my_checkbox']) ? 'true' : 'false',
-	// Note I stored this as a value before
 	'my_radio' => $my_radio,
 	'my_dropdown_single' => $_POST['my_dropdown_single'],
 	'my_dropdown_multi' => $dropdown_list
 );
 
 // Save CSV
-$my_file = fopen('file-appended.csv', 'a');
+$my_file = fopen('data.csv', 'a');
 fputcsv($my_file, $values);
 fclose($my_file);
 

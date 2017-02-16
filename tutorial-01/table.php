@@ -1,21 +1,13 @@
 <?php 
 // HTML Template from: view-source:http://getbootstrap.com/examples/starter-template/ 
 
-// Make sure you run the form.php page a few times first
-
-// Lets read in file contents
-$my_file = fopen('file-appended.csv', 'r');
-
+// Read CSV Values
+$my_file = fopen('data.csv', 'r');
 $values = [];
-// Sorry I messed up we have to do this
 while (($data = fgetcsv($my_file)) !== FALSE) {
 	array_push($values, $data);
 }
 fclose($my_file);
-
-// Print Values
-// var_dump($values);
-
 
 ?><!DOCTYPE html>
 <html lang="en">
