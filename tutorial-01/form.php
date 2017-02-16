@@ -85,13 +85,10 @@ fputcsv($my_file, $values);
 fclose($my_file);
 
 // You will notice the contents is replace each time.. But we want to append!!
-// Uncomment the next one and see what you get!!
 
-// $my_file = fopen('file-appended.csv', 'a');
-// fputcsv($my_file, $values);
-// fclose($my_file);
-
-// Looks good!!
+$my_file = fopen('file-appended.csv', 'a');
+fputcsv($my_file, $values);
+fclose($my_file);
 
 
 ?><!DOCTYPE html>

@@ -1,5 +1,4 @@
 # Chris' Website Tuts
-
 ## Tutorial 1
 
 ###1a. Intital Submitting of Form
@@ -13,6 +12,10 @@ https://github.com/ptimson/cfduncan/tree/8dbacc820ef9248efe1ba7bf5c4f4d7b7729c4d
 ###1c. Storing to file
 Let's store the values as a CSV!!
 https://github.com/ptimson/cfduncan/tree/85e43f961779d9a8023274209b3edaf58dcd9ce7
+
+###1d. Printing CSV
+We have a new page! `table.php` Lets see how we get the CSV conetns
+
 
 ## Extra
 ### DatePicker
