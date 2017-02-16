@@ -30,8 +30,7 @@ Cleaned and Sexy ;)
 https://github.com/ptimson/cfduncan/archive/2a6dcf249434158bf08444b426e33696dead9960.zip
 
 ###1e. Wait we have a bug!
-Flick between two pages - You'll see that more items get added the the table
-Let's fix this
+Flick between two pages - You'll see that more items get added the the table... Let's fix this
 https://github.com/ptimson/cfduncan/archive/116ba6e6b7c73d9f1207f214140a351de76f1941.zip
 
 
