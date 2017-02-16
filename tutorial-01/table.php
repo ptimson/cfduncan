@@ -9,7 +9,7 @@ $values = fgetcsv($my_file);
 fclose($my_file);
 
 // Print Values
-var_dump($values);
+// var_dump($values);
 
 
 ?><!DOCTYPE html>
@@ -52,6 +52,31 @@ var_dump($values);
 
 			<h1>Chris's Example Table</h1>
 
+			<table class="table"> 
+				<caption>Optional table caption.</caption> 
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Email</th>
+						<th>Password</th>
+						<th>Checkbox</th>
+						<th>Radio</th>
+						<th>Dropdown Single</th>
+						<th>Dropdown Multi</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Data</td>
+						<td>Data</td>
+						<td>Data</td>
+						<td>Data</td>
+						<td>Data</td>
+						<td>Data</td>
+					</tr>
+				</tbody>
+			</table>
 			
 		</div><!-- /.container -->
 

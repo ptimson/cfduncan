@@ -16,6 +16,9 @@ https://github.com/ptimson/cfduncan/tree/85e43f961779d9a8023274209b3edaf58dcd9ce
 ###1d. Printing CSV
 We have a new page! `table.php` Lets see how we get the CSV conetns
 
+###1e. Creating Table in bootsrap
+Let's make the bootstrap table ready to display the results
+
 
 ## Extra
 ### DatePicker
