@@ -15,14 +15,15 @@ https://github.com/ptimson/cfduncan/tree/85e43f961779d9a8023274209b3edaf58dcd9ce
 
 ###1d. Printing CSV
 We have a new page! `table.php` Lets see how we get the CSV contents
-
+https://github.com/ptimson/cfduncan/tree/abf5190c9e81bb75074e23397247a7364eee1d29
 
 ###1e. Creating Table in bootsrap
 Let's make the bootstrap table ready to display the results
+https://github.com/ptimson/cfduncan/tree/01654ac4228cafcf7508e9a6a412adfcd3e4a0ac
 
 ###1f. Lets Populate the data with PHP
 Sorry I messed up `1e.` abit and it only read the first line of the CSV so I had to correct near the top
-
+https://github.com/ptimson/cfduncan/tree/af58e89e80b456945c4922f7d128ad1f5d9e45b6
 
 
 ## Extra
