@@ -14,10 +14,15 @@ Let's store the values as a CSV!!
 https://github.com/ptimson/cfduncan/tree/85e43f961779d9a8023274209b3edaf58dcd9ce7
 
 ###1d. Printing CSV
-We have a new page! `table.php` Lets see how we get the CSV conetns
+We have a new page! `table.php` Lets see how we get the CSV contents
+
 
 ###1e. Creating Table in bootsrap
 Let's make the bootstrap table ready to display the results
+
+###1f. Lets Populate the data with PHP
+Sorry I messed up `1e.` abit and it only read the first line of the CSV so I had to correct near the top
+
 
 
 ## Extra
