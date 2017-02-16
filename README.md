@@ -25,6 +25,10 @@ https://github.com/ptimson/cfduncan/tree/01654ac4228cafcf7508e9a6a412adfcd3e4a0a
 Sorry I messed up `1e.` abit and it only read the first line of the CSV so I had to correct near the top
 https://github.com/ptimson/cfduncan/tree/af58e89e80b456945c4922f7d128ad1f5d9e45b6
 
+###1x. Cleanup
+Cleaned and Sexy ;)
+https://github.com/ptimson/cfduncan/tree/2a6dcf249434158bf08444b426e33696dead9960
+
 
 ## Extra
 ### DatePicker
